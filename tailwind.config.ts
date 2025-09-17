@@ -6,33 +6,24 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'class', // controle manual via JavaScript
+  darkMode: 'class', 
   theme: {
     extend: {
         colors: {
-            // Cores principais
             primary: 'var(--primary)',
             secondary: 'var(--secondary)',
             tertiary: 'var(--tertiary)',
             quaternary: 'var(--quaternary)',
             quinary: 'var(--quinary)',
-            
-            // Cores de fundo
             background: 'var(--background)',
             surface: 'var(--surface)',
             'surface-variant': 'var(--surfaceVariant)',
-            
-            // Cores de texto
             'on-background': 'var(--onBackground)',
             'on-surface': 'var(--onSurface)',
             'on-primary': 'var(--onPrimary)',
             'on-secondary': 'var(--onSecondary)',
-            
-            // Cores de borda
             outline: 'var(--outline)',
             'outline-variant': 'var(--outlineVariant)',
-            
-            // Cores de status
             success: 'var(--success)',
             warning: 'var(--warning)',
             error: 'var(--error)',
@@ -89,7 +80,7 @@ const config: Config = {
             lg: 'var(--lg)',
             xl: 'var(--xl)',
             '2xl': 'var(--2xl)',
-            full: 'var(--full)',
+            full: '9999px',
         },
     },
   },

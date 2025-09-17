@@ -1,9 +1,15 @@
 import { Movie } from "../../lib/types";
 import Image from "next/image";
 
-export default function MovieCard({ ...movie }: Movie) {
+type Props = Movie & {
+  className?: string;
+  showPlot?: boolean;
+  showTitle?: boolean;
+}
+
+export default function MovieCard({ className , showPlot = true, showTitle = true, ...movie }: Props) {
   return (
-    <div className="group cursor-pointer">
+    <div className={`group cursor-pointer ${className}`}>
       <a
         href={`/movie/${movie.seoname.value}`}
         className="block"
@@ -25,10 +31,10 @@ export default function MovieCard({ ...movie }: Movie) {
         </div>
         
         <div className="mt-3">
-          <h4 className="text-lg font-semibold text-primary group-hover:text-primary transition-colors duration-200">
+          {showTitle && <h4 className="text-lg font-semibold text-primary group-hover:text-primary transition-colors duration-200">
             {movie.title.value}
-          </h4>
-          {movie.plot?.value && (
+          </h4>}
+          {showPlot && movie.plot?.value && (
             <p className="mt-1 text-sm text-on-surface opacity-70 line-clamp-2">
               {movie.plot.value.replace(/<[^>]*>/g, '')} 
             </p>

@@ -1,23 +1,28 @@
-import { getMovies } from '../lib/kontent';
-import MovieCard from '../components/MovieCard';
+import { getMoviesBySlug, getMoviesTrending, getMovies } from "../lib/kontent"
+import MovieGrid from "../components/movies/MovieGrid"
+import Hero from "../components/ui/Hero"
+import Categories from "../components/movies/Categories"
+import Section from "../components/ui/Section"
+
+const currentMovie = "monsters-inc"
 
 export default async function HomePage() {
-  const { items } = await getMovies();
+  const { items: trendingMovies } = await getMoviesTrending(currentMovie)
+  const currentMovieItem = await getMoviesBySlug(currentMovie)
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-primary mb-8">Movies</h1>
-      <div className="grid grid-auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.length === 0 && <p>No movies yet.</p>}
-        {items.map((a) => (
-          // <article key={a.system.id} className="card">
-          //   <h2><Link href={`/${a.elements.seoname.value}`}>{a.elements.title.value}</Link></h2>
-          //   <p>{a.elements.summary?.value ?? ''}</p>
-          //   <small>Slug: <code>{a.elements.seoname.value}</code></small>
-          // </article>
-          <MovieCard key={a.system.id} {...a.elements} />
-        ))}
-      </div>
-    </section>
-  );
+    <div className="min-h-screen">
+      <Hero movie={currentMovieItem} />
+      <main className="bg-black text-white -mt-2 relative z-10 pt-20">
+        <div className="max-w-[1920px] mx-auto px-4 py-8 space-y-10 px-8">
+          <Section title="Trending Movies">
+            <MovieGrid movies={trendingMovies} />
+          </Section>          
+          <Section title="Browse by Category">
+            <Categories />
+          </Section>
+        </div>
+      </main>
+    </div>
+  )
 }

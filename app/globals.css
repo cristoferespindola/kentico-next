@@ -4,8 +4,8 @@
 
 /* CSS Variables do sistema de temas */
 :root {
-  --primary: #772116;
-  --secondary: #BF3919;
+  --primary: #fff;
+  --secondary: #bf3919;
   --tertiary: #171717;
   --quaternary: #d97706;
   --quinary: #9333ea;
@@ -40,7 +40,7 @@
 }
 
 .dark {
-  --primary: #ff6b6b;
+  --primary: #fff;
   --secondary: #ff8e53;
   --tertiary: #f8f9fa;
   --quaternary: #ffd93d;
@@ -75,35 +75,57 @@ body {
   color: #0b0b0b;
   background: #fff;
 }
-a {
-  color: inherit;
-  text-decoration: none;
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
-header {
-  border-bottom: 1px solid #eee;
-  padding: 1rem 0;
-  margin-bottom: 1rem;
+
+.icon-xs {
+  width: var(--xs);
+  height: var(--xs);
 }
-nav a {
-  margin-right: 1rem;
+.icon-sm {
+  width: var(--sm);
+  height: var(--sm);
 }
-.list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+.icon-md {
+  width: var(--md);
+  height: var(--md);
 }
-.card {
-  padding: 1rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
+.icon-md {
+  width: var(--md);
+  height: var(--md);
 }
-code {
-  background: #f5f5f5;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
+.icon-lg {
+  width: var(--lg);
+  height: var(--lg);
+}
+.icon-xl {
+  width: var(--xl);
+  height: var(--xl);
+}
+.icon-2xl {
+  width: var(--xl);
+  height: var(--xl);
+}
+.icon-2xl {
+  width: var(--2xl);
+  height: var(--2xl);
+}
+.icon-3xl {
+  width: var(--3xl);
+  height: var(--3xl);
+}
+
+.ui-icon {
+    svg {
+        width: 100%;
+        height: 100%;
+    }
 }
