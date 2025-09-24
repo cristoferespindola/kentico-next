@@ -2,6 +2,8 @@
 
 A modern movie catalog built with **Next.js 15 (App Router)** and **Kontent.ai by Kentico** as the headless CMS, featuring a complete theme system and responsive design.
 
+**Live demo**: https://kentico-next.vercel.app/
+
 ## ✨ Features
 
 ### 🎬 Catalog Management
