@@ -1,8 +1,8 @@
 "use client"
 
 import { createContext, useContext } from "react"
-import { useTheme } from "../../hooks/useTheme"
-import { THEME_CONFIG } from "../../lib/theme-config"
+import { useTheme } from "../../../hooks/useTheme"
+import { THEME_CONFIG } from "../../../lib/theme-config"
 
 interface ThemeContextType {
   theme: "light" | "dark" | "system"

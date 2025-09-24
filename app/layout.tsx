@@ -1,6 +1,6 @@
 import "./globals.css"
 import type { ReactNode } from "react"
-import Theme from "../components/theme/theme"
+import Theme from "../components/ui/theme"
 import Header from "../components/ui/Header"
 import Footer from "../components/ui/Footer"
 
