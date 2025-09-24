@@ -6,7 +6,7 @@ export default async function MovieTabs() {
   const categories = await getMovieCategories()
   const { items: allMovies } = await getMovies()
 
-  // Criar tabs com "All Popular" + categorias
+
   const tabs = [
     {
       id: 'all',
@@ -17,7 +17,7 @@ export default async function MovieTabs() {
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
       ),
-      content: <MovieGrid title="" movies={allMovies} />
+      content: <MovieGrid movies={allMovies} />
     },
     ...categories.map((category) => ({
       id: category.codename,
@@ -35,7 +35,6 @@ export default async function MovieTabs() {
             Filmes da categoria <em className="font-semibold text-gray-800">{category.name}</em>
           </p>
           <MovieGrid 
-            title="" 
             movies={allMovies.filter(movie => 
               movie.elements.category?.value?.some(cat => cat.name === category.name)
             )} 

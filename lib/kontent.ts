@@ -24,6 +24,13 @@ async function getClient() {
   })
 }
 
+function getStaticClient() {
+  return new DeliveryClient({
+    environmentId: envId ?? "",
+    propertyNameResolver: camelCasePropertyNameResolver,
+  })
+}
+
 export async function getMovies(count = 50) {
   const client = await getClient()
   const response = await client
@@ -49,7 +56,7 @@ export async function getMoviesTrending(ignore: string) {
 }
 
 export async function getAllMoviesSlug(): Promise<string[]> {
-  const client = await getClient()
+  const client = getStaticClient()
   const response = await client
     .items<MovieItem>()
     .type("movie")
@@ -73,6 +80,19 @@ export async function getMoviesBySlug(slug: string): Promise<MovieItem | null> {
   return response.data.items[0] ?? null
 }
 
+export async function getActorsByCodenames(codenames: string[]): Promise<ActorItem[]> {
+  if (codenames.length === 0) return []
+  
+  const client = await getClient()
+  const response = await client
+    .items<ActorItem>()
+    .type("actor")
+    .inFilter("system.codename", codenames)
+    .toPromise()
+
+  return response.data.items
+}
+
 export async function getActors() {
   const client = await getClient()
   const response = await client
@@ -82,6 +102,42 @@ export async function getActors() {
     .toPromise()
 
   return { items: response.data.items }
+}
+
+export async function getActorBySlug(slug: string): Promise<ActorItem | null> {
+  const client = await getClient()
+  const response = await client
+    .items<ActorItem>()
+    .type("actor")
+    .equalsFilter("elements.url", slug)
+    .limitParameter(1)
+    .toPromise()
+
+  return response.data.items[0] ?? null
+}
+
+export async function getMoviesByActor(actorCodename: string) {
+  const client = await getClient()
+  const response = await client
+    .items<MovieItem>()
+    .type("movie")
+    .containsFilter("elements.stars", [actorCodename])
+    .toPromise()
+
+  return { items: response.data.items }
+}
+
+export async function getAllActorsSlug(): Promise<string[]> {
+  const client = getStaticClient()
+  const response = await client
+    .items<ActorItem>()
+    .type("actor")
+    .elementsParameter(["url"])
+    .toPromise()
+
+  return response.data.items
+    .map((i) => i.elements.url.value)
+    .filter(Boolean)
 }
 
 export async function getMovieCategories() {

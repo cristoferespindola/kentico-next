@@ -32,6 +32,18 @@ export default function Header() {
                 Home
               </Link>
               <Link 
+                href="/movie" 
+                className="text-white/90 hover:text-white transition-colors"
+              >
+                Movies
+              </Link>
+              <Link 
+                href="/actors" 
+                className="text-white/90 hover:text-white transition-colors"
+              >
+                Actors
+              </Link>
+              <Link 
                 href="/api/preview" 
                 className="text-white/90 hover:text-white transition-colors"
               >

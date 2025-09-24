@@ -1,10 +1,12 @@
 import { IContentItem, Elements } from "@kontent-ai/delivery-sdk";
 
 export type Actor = {
-  name: Elements.TextElement;
+  url: Elements.UrlSlugElement;
+  firstName: Elements.TextElement;
+  lastName: Elements.TextElement;
   photo: Elements.AssetsElement;
-  born: Elements.DateTimeElement;
-  nationality: Elements.TaxonomyElement;
+  born?: Elements.DateTimeElement;
+  nationality?: Elements.TaxonomyElement;
 };
 
 export type ActorItem = IContentItem<Actor>;

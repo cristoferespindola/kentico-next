@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="bg-black text-white transition-colors duration-200">
         <Theme>
           <Header />
-          <main className="min-h-screen">
+          <main className="min-h-screen pt-20">
             {children}
           </main>
         </Theme>
