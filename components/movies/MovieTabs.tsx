@@ -1,6 +1,7 @@
 import Tabs from "../ui/Tabs"
 import { getMovieCategories, getMovies } from "../../lib/kontent"
 import MovieGrid from "./MovieGrid"
+import { Paragraph } from "../ui/Typography"
 
 export default async function MovieTabs() {
   const categories = await getMovieCategories()
@@ -12,6 +13,9 @@ export default async function MovieTabs() {
       label: "All Popular",
       icon: (
         <svg
+          key="all"
+          aria-hidden="true"
+          focusable="false"
           className="shrink-0 size-4"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -34,6 +38,9 @@ export default async function MovieTabs() {
       label: category.name,
       icon: (
         <svg
+          key={category.codename}
+          aria-hidden="true"
+          focusable="false"
           className="shrink-0 size-4"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -52,10 +59,10 @@ export default async function MovieTabs() {
       ),
       content: (
         <div>
-          <p className="text-gray-500 mb-4">
+          <Paragraph className="mb-4">
             Filmes da categoria{" "}
-            <em className="font-semibold text-gray-800">{category.name}</em>
-          </p>
+            <em className="font-semibold">{category.name}</em>
+          </Paragraph>
           <MovieGrid
             movies={allMovies.filter((movie) =>
               movie.elements.category?.value?.some(

@@ -43,13 +43,8 @@ const config: Config = {
         "2xl": "var(--2xl)",
         "3xl": "var(--3xl)",
         "4xl": "var(--4xl)",
-      },
-      fontWeight: {
-        light: "var(--light)",
-        normal: "var(--normal)",
-        medium: "var(--medium)",
-        semibold: "var(--semibold)",
-        bold: "var(--bold)",
+        "5xl": "var(--5xl)",
+        "6xl": "var(--6xl)",
       },
       lineHeight: {
         tight: "var(--tight)",
@@ -84,7 +79,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [],
 }
 
 export default config

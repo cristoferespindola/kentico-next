@@ -1,5 +1,7 @@
+import Link from "next/link"
 import { Movie } from "../../lib/types"
 import Image from "next/image"
+import { Heading, Paragraph } from "../ui/Typography"
 
 type Props = Movie & {
   className?: string
@@ -15,7 +17,7 @@ export default function MovieCard({
 }: Props) {
   return (
     <div className={`group cursor-pointer ${className}`}>
-      <a href={`/movie/${movie.seoname.value}`} className="block">
+      <Link href={`/movie/${movie.seoname.value}`} className="block">
         <div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-surface shadow-md transition-transform duration-300 group-hover:scale-105">
           {movie.poster?.value?.[0]?.url ? (
             <Image
@@ -27,24 +29,29 @@ export default function MovieCard({
             />
           ) : (
             <div className="flex items-center justify-center h-full bg-surface-variant text-on-surface">
-              <span className="text-sm">Sem imagem</span>
+              <Paragraph size="sm">Sem imagem</Paragraph>
             </div>
           )}
         </div>
 
         <div className="mt-3">
           {showTitle && (
-            <h4 className="text-lg font-semibold text-primary group-hover:text-primary transition-colors duration-200">
+            <Heading
+              level={4}
+              className="text-primary group-hover:text-primary transition-colors duration-200"
+              weight="semibold"
+              size="lg"
+            >
               {movie.title.value}
-            </h4>
+            </Heading>
           )}
           {showPlot && movie.plot?.value && (
-            <p className="mt-1 text-sm text-on-surface opacity-70 line-clamp-2">
+            <Paragraph className="mt-1 text-on-surface opacity-70 line-clamp-2">
               {movie.plot.value.replace(/<[^>]*>/g, "")}
-            </p>
+            </Paragraph>
           )}
         </div>
-      </a>
+      </Link>
     </div>
   )
 }

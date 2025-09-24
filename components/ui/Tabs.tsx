@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Button from "./Button"
+import { twMerge } from "tailwind-merge"
 
 type TabItem = {
   id: string
@@ -20,29 +21,32 @@ export default function Tabs({ tabs, defaultTab }: Props) {
 
   return (
     <div className="w-full">
-      <nav
-        className="flex gap-x-4 mb-8"
-        aria-label="Tabs"
-        role="tablist"
-        aria-orientation="horizontal"
-      >
-        {tabs.map((tab) => (
-          <Button
-            onClick={() => setActiveTab(tab.id)}
-            aria-selected={activeTab === tab.id}
-            role="tab"
-            variant={activeTab === tab.id ? "primary" : "secondary"}
-          >
-            {tab.label}
-          </Button>
-        ))}
-      </nav>
+      <div className="-mx-4">
+        <nav
+          className="flex gap-x-4 mb-8 overflow-x-auto flex-nowrap px-4 scrollbar-hide"
+          aria-label="Tabs"
+          role="tablist"
+          aria-orientation="horizontal"
+        >
+          {tabs.map((tab) => (
+            <Button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              aria-selected={activeTab === tab.id}
+              role="tab"
+              variant={activeTab === tab.id ? "primary" : "secondary"}
+            >
+              {tab.label}
+            </Button>
+          ))}
+        </nav>
+      </div>
 
       <div className="mt-3">
         {tabs.map((tab) => (
           <div
             key={tab.id}
-            className={activeTab === tab.id ? "block" : "hidden"}
+            className={twMerge(activeTab === tab.id ? "block" : "hidden")}
             role="tabpanel"
             aria-labelledby={`tab-${tab.id}`}
           >

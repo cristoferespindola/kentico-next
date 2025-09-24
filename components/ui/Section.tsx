@@ -1,3 +1,5 @@
+import { Heading } from "./Typography"
+
 type Props = {
   title: string
   children: React.ReactNode
@@ -7,7 +9,9 @@ type Props = {
 export default function Section({ title, children, className = "" }: Props) {
   return (
     <section className={`space-y-4 ${className}`}>
-      <h2 className="text-2xl font-semibold text-white">{title}</h2>
+      <Heading weight="semibold" size="xl">
+        {title}
+      </Heading>
       {children}
     </section>
   )

@@ -2,12 +2,12 @@ import Image from "next/image"
 
 export default function PageBackground() {
   return (
-    <div className="absolute inset-0 h-full w-full">
+    <div className="absolute inset-0 h-1/2 md:h-full w-full">
       <Image
         src="/assets/banner.webp"
         alt="Page Background"
         fill
-        className="object-cover"
+        className="object-contain md:object-cover"
         style={{ maxHeight: "99%" }}
       />
       <div
