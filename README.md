@@ -4,10 +4,11 @@ A modern movie catalog built with **Next.js 15 (App Router)** and **Kontent.ai b
 
 ## ✨ Features
 
-### 🎬 Movie Management
+### 🎬 Catalog Management
 
-- Movie listing with responsive grid layout
+- Movies listing with responsive grid layout
 - Individual movie detail pages
+- Actors listing and actor detail pages
 - Movie cards with aspect-ratio optimized images
 - Rich text plot descriptions
 - Movie metadata (release date, length, categories)
@@ -75,7 +76,9 @@ This app expects the following content types in Kentico Kontent:
 
 ### Actor Content Type
 
-- `name` (text) - Actor name
+- `url` (URL slug) - Actor slug
+- `first_name` (text) - First name
+- `last_name` (text) - Last name
 - `photo` (asset) - Actor photo
 - `born` (date & time) - Birth date
 - `nationality` (taxonomy) - Actor nationality
@@ -125,10 +128,13 @@ Edit `components/MovieCard/index.tsx` to customize:
 - Content display
 - Hover effects
 
-## 📡 API Endpoints
+## 📡 Routes & API Endpoints
 
-- `GET /` - Movie listing page
-- `GET /movie/[slug]` - Individual movie page
+- `GET /` - Home (hero, trending, categories)
+- `GET /movies` - All movies grid
+- `GET /movies/[slug]` - Individual movie page
+- `GET /actors` - All actors grid
+- `GET /actors/[slug]` - Individual actor page
 - `GET /api/preview` - Enable draft preview
 - `POST /api/revalidate` - Webhook revalidation
 
@@ -142,22 +148,29 @@ Point a Kontent webhook to `POST /api/revalidate` to automatically revalidate pa
 - Visit `/api/preview?disable=1` to disable preview mode
 - Preview mode shows unpublished content changes
 
-## 🏗 Project Structure
+## 🏗 Project Structure (simplified)
 
 ```
 ├── app/                    # Next.js App Router
 │   ├── globals.css        # Global styles + CSS variables
 │   ├── layout.tsx         # Root layout with theme provider
-│   └── page.tsx           # Homepage with movie listing
+│   ├── page.tsx           # Homepage (hero + sections)
+│   ├── movies/            # /movies routes
+│   │   ├── page.tsx       # Movies list
+│   │   └── [slug]/page.tsx# Movie detail
+│   └── actors/            # /actors routes
+│       ├── page.tsx       # Actors list
+│       └── [slug]/page.tsx# Actor detail
 ├── components/
-│   ├── MovieCard/         # Movie card component
-│   ├── Theme/             # Theme system components
-│   └── ThemeToggle.tsx    # Theme switcher
+│   ├── movies/            # Movie UI components
+│   ├── actors/            # Actor UI components
+│   ├── theme/             # Theme system components
+│   └── ui/                # Shared UI (Header, Footer, Section, Tabs, ...)
 ├── hooks/
 │   └── useTheme.ts        # Theme management hook
 ├── lib/
-│   ├── kontent.ts         # Kentico API client
-│   ├── types.ts           # TypeScript types
+│   ├── kontent.ts         # Kentico Delivery SDK helpers
+│   ├── types.ts           # TypeScript content types
 │   └── theme-config.ts    # Theme configuration
 └── tailwind.config.ts     # Tailwind configuration
 ```
