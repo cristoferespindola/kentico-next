@@ -30,7 +30,8 @@ export default async function ActorsPage() {
                   )}
                   <div className="text-center">
                     <h3 className="font-semibold text-sm md:text-base group-hover:text-blue-400 transition-colors">
-                      {actor.elements.firstName.value} {actor.elements.lastName.value}
+                      {actor.elements.firstName.value}{" "}
+                      {actor.elements.lastName.value}
                     </h3>
                   </div>
                 </div>

@@ -1,19 +1,21 @@
-import { Movie } from "../../lib/types";
-import Image from "next/image";
+import { Movie } from "../../lib/types"
+import Image from "next/image"
 
 type Props = Movie & {
-  className?: string;
-  showPlot?: boolean;
-  showTitle?: boolean;
+  className?: string
+  showPlot?: boolean
+  showTitle?: boolean
 }
 
-export default function MovieCard({ className , showPlot = true, showTitle = true, ...movie }: Props) {
+export default function MovieCard({
+  className,
+  showPlot = true,
+  showTitle = true,
+  ...movie
+}: Props) {
   return (
     <div className={`group cursor-pointer ${className}`}>
-      <a
-        href={`/movie/${movie.seoname.value}`}
-        className="block"
-      >
+      <a href={`/movie/${movie.seoname.value}`} className="block">
         <div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-surface shadow-md transition-transform duration-300 group-hover:scale-105">
           {movie.poster?.value?.[0]?.url ? (
             <Image
@@ -29,18 +31,20 @@ export default function MovieCard({ className , showPlot = true, showTitle = tru
             </div>
           )}
         </div>
-        
+
         <div className="mt-3">
-          {showTitle && <h4 className="text-lg font-semibold text-primary group-hover:text-primary transition-colors duration-200">
-            {movie.title.value}
-          </h4>}
+          {showTitle && (
+            <h4 className="text-lg font-semibold text-primary group-hover:text-primary transition-colors duration-200">
+              {movie.title.value}
+            </h4>
+          )}
           {showPlot && movie.plot?.value && (
             <p className="mt-1 text-sm text-on-surface opacity-70 line-clamp-2">
-              {movie.plot.value.replace(/<[^>]*>/g, '')} 
+              {movie.plot.value.replace(/<[^>]*>/g, "")}
             </p>
           )}
         </div>
       </a>
     </div>
-  );
+  )
 }

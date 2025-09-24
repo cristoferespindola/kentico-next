@@ -17,7 +17,7 @@ export default async function HomePage() {
         <div className="max-w-[1920px] mx-auto px-8 py-8 space-y-10">
           <Section title="Trending Movies">
             <MovieGrid movies={trendingMovies} />
-          </Section>          
+          </Section>
           <Section title="Browse by Category">
             <Categories />
           </Section>

@@ -8,15 +8,32 @@ export default async function Categories() {
 
   const tabs = [
     {
-      id: 'all',
-      label: 'All Popular',
-      content: <MovieGrid movies={allMovies.slice(0, 5)} count={allMovies.length} href="/movies" />
+      id: "all",
+      label: "All Popular",
+      content: (
+        <MovieGrid
+          movies={allMovies.slice(0, 5)}
+          count={allMovies.length}
+          href="/movies"
+        />
+      ),
     },
     ...categories.map((category) => ({
       id: category.codename,
       label: category.name,
-      content: <MovieGrid movies={allMovies.filter(movie => movie.elements.category?.value?.some(cat => cat.name === category.name)).slice(0, 5)} href={`/movies?category=${category.codename}`} />
-    }))
+      content: (
+        <MovieGrid
+          movies={allMovies
+            .filter((movie) =>
+              movie.elements.category?.value?.some(
+                (cat) => cat.name === category.name
+              )
+            )
+            .slice(0, 5)}
+          href={`/movies?category=${category.codename}`}
+        />
+      ),
+    })),
   ]
 
   return (

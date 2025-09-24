@@ -1,6 +1,6 @@
-import MovieCard from './MovieCard';
-import { Movie } from '../../lib/types';
+import MovieCard from "./MovieCard"
+import { Movie } from "../../lib/types"
 
 export default function MovieCardProxy(props: Movie) {
-  return <MovieCard {...props} />;
+  return <MovieCard {...props} />
 }

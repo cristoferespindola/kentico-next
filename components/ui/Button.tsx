@@ -29,7 +29,7 @@ const ButtonContent = ({
   size: "small" | "medium" | "large"
 }) => {
   const iconClassName = twMerge(
-    'ui-icon icon-md',
+    "ui-icon icon-md",
     iconPosition === "left" ? "mr-2" : "ml-2",
     variant === "primary" && "text-black",
     variant === "secondary" && "text-white",
@@ -37,11 +37,7 @@ const ButtonContent = ({
     size === "large" && "icon-xl"
   )
 
-  const Icon = icon ? (
-    <span className={iconClassName}>
-      {icon}
-    </span>
-  ) : null
+  const Icon = icon ? <span className={iconClassName}>{icon}</span> : null
 
   return (
     <>

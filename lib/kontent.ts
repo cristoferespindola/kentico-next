@@ -80,9 +80,11 @@ export async function getMoviesBySlug(slug: string): Promise<MovieItem | null> {
   return response.data.items[0] ?? null
 }
 
-export async function getActorsByCodenames(codenames: string[]): Promise<ActorItem[]> {
+export async function getActorsByCodenames(
+  codenames: string[]
+): Promise<ActorItem[]> {
   if (codenames.length === 0) return []
-  
+
   const client = await getClient()
   const response = await client
     .items<ActorItem>()
@@ -135,9 +137,7 @@ export async function getAllActorsSlug(): Promise<string[]> {
     .elementsParameter(["url"])
     .toPromise()
 
-  return response.data.items
-    .map((i) => i.elements.url.value)
-    .filter(Boolean)
+  return response.data.items.map((i) => i.elements.url.value).filter(Boolean)
 }
 
 export async function getMovieCategories() {

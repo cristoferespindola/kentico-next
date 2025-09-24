@@ -13,7 +13,7 @@ export default function ActorGrid({ actors, showLink = true }: Props) {
       {actors.map((actor) => (
         <Link
           key={actor.system.id}
-          href={showLink ? `/actors/${actor.elements.url.value}` : ''}
+          href={showLink ? `/actors/${actor.elements.url.value}` : ""}
           className="group"
         >
           <div className="space-y-3">

@@ -1,9 +1,5 @@
-import { ThemeProvider } from "./ThemeProvider";
+import { ThemeProvider } from "./ThemeProvider"
 
-export default function Theme({children}: {children: React.ReactNode}) {
-    return (
-        <ThemeProvider>
-            {children}  
-        </ThemeProvider>
-    )
+export default function Theme({ children }: { children: React.ReactNode }) {
+  return <ThemeProvider>{children}</ThemeProvider>
 }

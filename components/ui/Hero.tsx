@@ -1,18 +1,18 @@
-import { MovieItem } from '../../lib/types';
-import PageBackground from './PageBackground';
-import Button from './Button';
-import { RiArrowRightSLine } from '@remixicon/react';
+import { MovieItem } from "../../lib/types"
+import PageBackground from "./PageBackground"
+import Button from "./Button"
+import { RiArrowRightSLine } from "@remixicon/react"
 
 type Props = {
   movie?: MovieItem | null
-};
+}
 
 export default function Hero({ movie }: Props) {
   if (!movie) return null
 
-  const title = movie.elements.title.value;
-  const plot = movie.elements.plot?.value ?? '';
-  const slug = movie.elements.seoname.value;
+  const title = movie.elements.title.value
+  const plot = movie.elements.plot?.value ?? ""
+  const slug = movie.elements.seoname.value
 
   return (
     <section className="relative overflow-hidden h-[85vh] min-h-[600px] z-0">
@@ -23,15 +23,23 @@ export default function Hero({ movie }: Props) {
             {title}
           </h1>
           {plot && (
-            <p className="max-w-2xl text-white/90 mb-6 text-lg drop-shadow-md" dangerouslySetInnerHTML={{ __html: plot }} />
+            <p
+              className="max-w-2xl text-white/90 mb-6 text-lg drop-shadow-md"
+              dangerouslySetInnerHTML={{ __html: plot }}
+            />
           )}
           <div className="flex gap-3">
-            <Button href={`/movie/${slug}`} variant="secondary" size="large" icon={<RiArrowRightSLine />}>
+            <Button
+              href={`/movie/${slug}`}
+              variant="secondary"
+              size="large"
+              icon={<RiArrowRightSLine />}
+            >
               Details
             </Button>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

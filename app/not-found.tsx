@@ -4,5 +4,5 @@ export default function NotFound() {
       <h1>404</h1>
       <p>Article not found.</p>
     </main>
-  );
+  )
 }
