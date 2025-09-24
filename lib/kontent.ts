@@ -6,8 +6,11 @@ import { draftMode } from "next/headers"
 import { ActorItem, MovieItem } from "./types"
 
 const envId = process.env.KONTENT_ENVIRONMENT_ID
-if (!envId) {
-  console.warn("KONTENT_ENVIRONMENT_ID is not set")
+if (!envId || !/^[0-9a-f-]{36}$/i.test(envId)) {
+  throw new Error(
+    `KONTENT_ENVIRONMENT_ID is missing or invalid. Received: '${envId ?? "<undefined>"}'.\n` +
+      "Set a valid environment ID in your environment variables (Vercel: Project Settings → Environment Variables)."
+  )
 }
 
 async function getClient() {
