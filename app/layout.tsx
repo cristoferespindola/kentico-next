@@ -34,9 +34,8 @@ const nagivation = [
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="light">
-      <body className="bg-tertiary text-white transition-colors duration-200 w-full min-h-screen flex flex-col">
-        <Theme>
-          <Header title="Movies" navigation={nagivation} />
+      <body className="bg-tertiary text-primary transition-colors duration-200 w-full min-h-screen flex flex-col">
+        <Theme>          
           <main className="flex-1">{children}</main>
           <Footer />
         </Theme>

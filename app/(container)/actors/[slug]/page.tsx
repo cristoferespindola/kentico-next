@@ -3,12 +3,12 @@ import {
   getActorBySlug,
   getMoviesByActor,
   getAllActorsSlug,
-} from "../../../lib/kontent"
-import MovieGrid from "../../../components/movies/MovieGrid"
-import Section from "../../../components/ui/Section"
+} from "../../../../lib/kontent"
+import MovieGrid from "../../../../components/movies/MovieGrid"
+import Section from "../../../../components/ui/Section"
 import Image from "next/image"
-import { Heading, Paragraph } from "../../../components/ui/Typography"
-import Container from "../../../components/ui/Container"
+import { Heading, Paragraph } from "../../../../components/ui/Typography"
+import Container from "../../../../components/ui/Container"
 
 export async function generateStaticParams() {
   const slugs = await getAllActorsSlug()

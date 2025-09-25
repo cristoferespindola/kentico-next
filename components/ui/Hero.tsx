@@ -16,16 +16,16 @@ export default function Hero({ movie }: Props) {
   const slug = movie.elements.seoname.value
 
   return (
-    <section className="relative overflow-hidden h-[85vh] min-h-[600px] z-0">
+    <section className="relative overflow-hidden h-[85vh] min-h-[600px] max-h-[1000px] z-0">
       <PageBackground />
       <div className="relative h-full flex items-end pb-10 md:pb-20 px-8">
         <div className="max-w-4xl">
-          <Heading level={1} className="mb-4 drop-shadow-lg" weight="extrabold">
+          <Heading level={1} className="mb-4 drop-shadow-lg text-white" weight="extrabold">
             {title}
           </Heading>
           {plot && (
             <Paragraph
-              className="max-w-2xl text-primary/90 mb-6 text-lg drop-shadow-md"
+              className="max-w-2xl text-white/90 mb-6 text-lg drop-shadow-md"
               dangerouslySetInnerHTML={{ __html: plot }}
             />
           )}
@@ -33,6 +33,7 @@ export default function Hero({ movie }: Props) {
             <Button
               href={`/movie/${slug}`}
               variant="secondary"
+              className="text-white hover:text-black border-white"
               size="large"
               icon={<RiArrowRightSLine />}
             >

@@ -18,6 +18,7 @@ type Props = {
   icon?: React.ReactElement
   iconPosition?: IconPosition
   role?: Role
+  className?: string
 }
 
 const Loading = () => {
@@ -42,10 +43,8 @@ const ButtonContent = ({
   loading?: boolean
 }) => {
   const iconClassName = twMerge(
-    "ui-icon icon-md",
+    "ui-icon icon-md text-current",
     iconPosition === "left" ? "mr-2" : "ml-2",
-    variant === "primary" && "text-black",
-    variant === "secondary" && "text-white",
     size === "small" && "icon-sm",
     size === "large" && "icon-xl"
   )
@@ -72,22 +71,24 @@ export default function Button({
   icon,
   iconPosition = "right",
   role = "button",
+  className,
 }: Props) {
-  const className = twMerge(
-    "px-5 py-2 rounded-full transition-colors flex items-center cursor-pointer transition-colors",
+  const buttonClassName = twMerge(
+    "px-5 py-2 rounded-full transition-colors flex items-center cursor-pointer transition-colors border border-primary",
     "duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 whitespace-nowrap flex-shrink-0",
     variant === "primary" && "bg-white text-black hover:bg-white/80",
     variant === "secondary" &&
-      "bg-black/20 text-white border border-white/30 hover:bg-white/90 hover:text-black",
+      "bg-transparent text-primary border border-primary hover:bg-primary hover:text-on-primary",
     size === "small" && "px-3 py-1 text-sm",
-    size === "large" && "px-8 py-3 text-lg"
+    size === "large" && "px-8 py-3 text-lg",
+    className
   )
 
   if (href) {
     return (
       <Link
         href={href}
-        className={className}
+        className={buttonClassName}
         role={role}
         aria-disabled={disabled}
       >
@@ -105,7 +106,7 @@ export default function Button({
 
   return (
     <button
-      className={className}
+      className={buttonClassName}
       onClick={onClick}
       disabled={disabled}
       aria-disabled={disabled}

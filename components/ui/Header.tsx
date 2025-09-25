@@ -12,13 +12,14 @@ interface Props {
   }[]
   preview?: boolean
   themeToggle?: boolean
+  solid?: boolean
 }
 
 const NavigationItem = ({ label, href }: { label: string; href: string }) => {
   return (
     <Link
       href={href}
-      className="text-white/90 hover:text-white transition-colors hover:underline"
+      className="text-current/90 hover:text-current transition-colors hover:underline"
     >
       {label}
     </Link>
@@ -30,23 +31,26 @@ export default function Header({
   navigation,
   preview,
   themeToggle,
+  solid,
 }: Props) {
   const isScrolled = useScroll()
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[var(--header-height)] ${
-        isScrolled
-          ? "bg-black/90 backdrop-blur-sm border-b border-gray-800"
-          : "bg-transparent border-b border-transparent"
+        solid
+          ? "bg-black/90 backdrop-blur-sm border-b border-gray-800 text-white"
+          : isScrolled
+            ? "bg-black/90 backdrop-blur-sm border-b border-gray-800 text-white"
+            : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 md:px-0 py-4 h-full">
+      <div className="max-w-7xl mx-auto px-4 py-4 h-full">
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-6">
             <Link
               href="/"
-              className="text-lg font-semibold text-white hover:text-gray-300 transition-colors"
+              className="text-lg font-semibold text-current hover:text-current/90 transition-colors"
             >
               {title}
             </Link>

@@ -4,9 +4,9 @@
 
 /* CSS Variables do sistema de temas */
 :root {
-  --primary: #fff;
+  --primary: #000;
   --secondary: #bf3919;
-  --tertiary: #171717;
+  --tertiary: #fff;
   --quaternary: #d97706;
   --quinary: #9333ea;
   --background: #ffffff;
@@ -46,23 +46,23 @@
 
 .dark {
   --primary: #fff;
-  --secondary: #ff8e53;
-  --tertiary: #f8f9fa;
-  --quaternary: #ffd93d;
-  --quinary: #6bcf7f;
-  --background: #0d1117;
-  --surface: #161b22;
-  --surfaceVariant: #21262d;
-  --onBackground: #f0f6fc;
-  --onSurface: #f0f6fc;
-  --onPrimary: #0d1117;
-  --onSecondary: #0d1117;
-  --outline: #30363d;
-  --outlineVariant: #21262d;
-  --success: #3fb950;
-  --warning: #d29922;
-  --error: #f85149;
-  --info: #58a6ff;
+  --secondary: #bf3919;
+  --tertiary: #000;
+  --quaternary: #d97706;
+  --quinary: #9333ea;
+  --background: #0b0f14;
+  --surface: #111827;
+  --surfaceVariant: #1f2937;
+  --onBackground: #e5e7eb;
+  --onSurface: #e5e7eb;
+  --onPrimary: #0b0f14;
+  --onSecondary: #0b0f14;
+  --outline: #374151;
+  --outlineVariant: #1f2937;
+  --success: #28a745;
+  --warning: #ffc107;
+  --error: #dc3545;
+  --info: #17a2b8;
 }
 
 :root {

@@ -1,7 +1,7 @@
-import { getActors } from "../../lib/kontent"
-import Section from "../../components/ui/Section"
-import ActorCard from "../../components/actors/ActorCard"
-import Container from "../../components/ui/Container"
+import { getActors } from "../../../lib/kontent"
+import Section from "../../../components/ui/Section"
+import ActorCard from "../../../components/actors/ActorCard"
+import Container from "../../../components/ui/Container"
 
 export default async function ActorsPage() {
   const { items: actors } = await getActors()

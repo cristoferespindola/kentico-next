@@ -18,7 +18,7 @@ export default function MovieCard({
   return (
     <div className={`group cursor-pointer ${className}`}>
       <Link href={`/movie/${movie.seoname.value}`} className="block">
-        <div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-surface shadow-md transition-transform duration-300 group-hover:scale-105">
+        <div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-surface shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl" style={{ boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)' }}>
           {movie.poster?.value?.[0]?.url ? (
             <Image
               src={movie.poster.value[0].url}

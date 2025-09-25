@@ -3,13 +3,13 @@ import {
   getMoviesBySlug,
   getAllMoviesSlug,
   getActorsByCodenames,
-} from "../../../lib/kontent"
-import { RichText } from "../../../components/RichText"
-import ActorGrid from "../../../components/actors/ActorGrid"
-import Section from "../../../components/ui/Section"
+} from "../../../../lib/kontent"
+import { RichText } from "../../../../components/RichText"
+import ActorGrid from "../../../../components/actors/ActorGrid"
+import Section from "../../../../components/ui/Section"
 import Image from "next/image"
-import { Heading, Paragraph } from "../../../components/ui/Typography"
-import Container from "../../../components/ui/Container"
+import { Heading, Paragraph } from "../../../../components/ui/Typography"
+import Container from "../../../../components/ui/Container"
 
 export async function generateStaticParams() {
   const slugs = await getAllMoviesSlug()
@@ -69,7 +69,7 @@ export default async function MoviePage({
               {movie.elements.category.value.map((category, index) => (
                 <Paragraph
                   key={index}
-                  className="px-3 py-1 bg-blue-600 text-white rounded-full"
+                  className="px-3 py-1 bg-blue-600 text-primary rounded-full"
                   size="sm"
                 >
                   {category.name}

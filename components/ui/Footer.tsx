@@ -3,9 +3,9 @@ import Container from "./Container"
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-tertiary text-primary border-t border-primary/90">
       <Container>
-        <Paragraph size="sm" color="text-white/50">
+        <Paragraph size="sm" color="text-primary/50">
           &copy; {new Date().getFullYear()} Movies. All rights reserved.
         </Paragraph>
       </Container>
